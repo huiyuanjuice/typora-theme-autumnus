@@ -29,10 +29,12 @@
   --base-shadow: 0px 8px 16px hsla(0, 0%, 0%, 0.2);
   --opt-shadow: 0px 8px 16px 1px hsla(0, 0%, 0%, 0.3);
   --img-shadow: var(--opt-shadow);
+  --code-shadow: none;
+  --quota-shadow: none;
   --base-margin: 1rem auto;
   --base-padding: 1px 4px;
   --opt-padding: 1rem;
-  /* 字体样式援引自 font.css */
+  --lineheight: 1.75rem;
   --base-font: -apple-system, "Poppins", "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "Noto Sans CJK SC", "PingFang SC", "Hiragino Sans GB", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
   --title-font: var(--em-font);
   --em-font: "EB Garamond", Georgia, "Nimbus Roman No9 L", "Noto Serif CJK SC", "Songti SC", "Source Han Serif SC", "Source Han Serif CN", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun, SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU, serif;
@@ -40,6 +42,16 @@
   --monospace: "Cascadia code", "Sarasa Term SC", Monaco, "Deja Vu Sans Mono", Consolas, "Lucida Console", "Andale Mono", Courier;
   --mermaid-alt-font-family: var(--base-font) !important;
   --mermaid-font-family: var(--base-font) !important;
+}
+.quota {
+  background: var(--quota-bg);
+  color: var(--quota-color);
+  font-family: var(--quota-font);
+  font-size: 1.2rem;
+  box-shadow: var(--quota-shadow);
+}
+.quota-quota {
+  box-shadow: none;
 }
 *,
 :after,
@@ -147,19 +159,19 @@ body,
   font-weight: 400;
   font-size: 16px;
   font-size: 1rem;
-  line-height: 1.75rem;
+  line-height: var(--lineheight);
   color: var(--text-color);
   text-align: justify;
 }
 content {
   background: var(--bg-color);
-  min-width: 600px;
+  min-width: 400px;
 }
 #write {
   background: var(--write-bg);
   max-width: 914px;
-  min-width: calc(100vw-45rem);
-  min-height: calc(100vh-6rem);
+  min-width: 400px;
+  min-height: 98%;
   margin: 2rem auto;
   padding: 4rem;
 }
@@ -369,8 +381,8 @@ content {
   padding: 0;
   padding-left: 1rem;
   border-left: var(--base-borderl);
-  box-shadow: none;
   border-radius: 0;
+  box-shadow: none;
 }
 #write blockquote pre.md-fences {
   box-shadow: none;
@@ -378,7 +390,7 @@ content {
 #write blockquote p {
   color: var(--quota-color);
   font-family: var(--quota-font);
-  line-height: 1.75rem;
+  line-height: var(--lineheight);
 }
 #write blockquote em,
 #write blockquote strong,
@@ -476,7 +488,7 @@ content {
   border: none !important;
 }
 .md-toc .md-toc-content .md-toc-h1 {
-  margin-top: 2rem;
+  margin-top: 4rem;
   font-weight: 300;
   font-size: 1.2rem;
   counter-increment: counter_md-toc-h1;
@@ -680,7 +692,7 @@ blockquote .task-list-item input::before {
   .md-toc::before {
     display: block;
     position: relative;
-    left: 0;
+    left: 0!important;
     margin-top: 4rem;
     margin-bottom: 0;
     padding: 0;
@@ -689,6 +701,9 @@ blockquote .task-list-item input::before {
   .md-toc .md-toc-content {
     top: 0;
     left: 0;
+  }
+  .md-toc .md-toc-content .md-toc-h1 {
+    margin-top: 2rem;
   }
 }
 @media screen and (max-width: 1000px) {
@@ -712,7 +727,7 @@ blockquote .task-list-item input::before {
     font-size: 16px;
     font-size: 1rem;
     font-weight: 400;
-    line-height: 1.75rem;
+    line-height: var(--lineheight);
   }
   .typora-export * {
     -webkit-print-color-adjust: exact;
@@ -742,7 +757,7 @@ blockquote .task-list-item input::before {
     font-size: 1.25rem;
   }
   #write p {
-    line-height: 1.75rem;
+    line-height: var(--lineheight);
     margin-top: 0;
     margin-bottom: 0;
     text-indent: 2rem;

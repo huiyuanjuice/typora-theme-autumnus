@@ -1,11 +1,17 @@
+// 请不要修改@light和@dark的值，当@light<@dark时启用亮色模式，否则启用暗色模式。
+
 @light: 1;
 @dark: 2;
 
+// 主要色，请尽量选择亮度适中的颜色，即hsl值最后一个值尽量较大。
 @theme-color: if((@light<@dark), hsl(0, 100%, 75%), hsl(195, 100%, 50%));
+// 主要背景色
 @base-bg: if((@light<@dark), hsl(0, 0%, 100%), hsl(0, 0%, 25%));
+// 主要文字颜色
 @base-text: if((@light<@dark), hsl(0, 0%, 5%), hsl(0, 0%, 75%));
 
 :root {
+    // 背景色组：依次是 背景色，写作区背景色，链接，高亮，代码，引用，代码块，表头，表体。
     --bg-color: @base-bg;
     --write-bg: @base-bg;
     --link-bg: none;
@@ -16,6 +22,7 @@
     --thead-bg: darken(@base-bg, 9%);
     --tbody-bg: darken(@base-bg, 7%);
 
+    //文字颜色组：依次是 标题色，正文，高亮，引用，代码，代码块，脚注，链接。
     --title-color: if((@light<@dark), @base-text, lighten(@base-text, 15%));
     --text-color: if((@light<@dark), lighten(@base-text, 15%), @base-text);
     --mark-color: if((@light<@dark), lighten(@base-text, 15%), darken(@base-text, 45%));
@@ -25,30 +32,36 @@
     --footer-color: if((@light<@dark), lighten(@base-text, 45%), darken(@base-text, 45%));
     --link-color: @theme-color;
 
+    // markdown 符号颜色
     --md-char-color: lighten(@theme-color, 10%);
     --meta-content-color: lighten(@theme-color, 10%);
 
+    // hover色
     --link-hover: lighten(@theme-color, 10%);
     --thead-hover: darken(@base-bg, 1%);
     --tbody-hover: darken(@base-bg, 1%);
 
+    // 默认边框。l:left;b:bottom;
     --window-border: 1px solid hsl(0, 0%, 95%);
     --base-border: 1px solid lighten(@theme-color, 10%);
     --base-borderl: 4px solid lighten(@theme-color, 10%);
     --base-borderb: 1px dashed lighten(@theme-color, 10%);
     --opt-borderb: 1px dashed hsl(215, 100%, 65%);
 
+    // 阴影：默认，可选，图片，代码块，引用。
     --base-shadow: 0px 8px 16px hsla(0, 0%, 0%, .2);
     --opt-shadow: 0px 8px 16px 1px hsla(0, 0%, 0%, 0.3);
     --img-shadow: var(--opt-shadow);
-    // --code-shadow: var(--base-shadow);
-    // --quota-shadow: var(--base-shadow);
+    --code-shadow: none;
+    --quota-shadow: none;
 
+    // 间距：默认外边距，默认内边距，可选内边距，行高。
     --base-margin: 1rem auto;
     --base-padding: 1px 4px;
     --opt-padding: 1rem;
+    --lineheight: 1.75rem;
 
-    /* 字体样式援引自 font.css */
+    // 默认字体，标题，强调，引用，代码
     --base-font: -apple-system, "Poppins", "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "Noto Sans CJK SC", "PingFang SC", "Hiragino Sans GB", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
 
     --title-font: var(--em-font);
@@ -59,9 +72,75 @@
 
     --monospace: "Cascadia code", "Sarasa Term SC", Monaco, "Deja Vu Sans Mono", Consolas, "Lucida Console", "Andale Mono", Courier;
 
+    // mermaid 字体
     --mermaid-alt-font-family: var(--base-font) !important;
     --mermaid-font-family: var(--base-font) !important;
 }
+
+// 可选样式
+
+
+///////////////
+// 引用样式0 //
+/////////////
+
+.quota {
+    background: var(--quota-bg);
+    color: var(--quota-color);
+    font-family: var(--quota-font);
+    font-size: 1.2rem;
+    box-shadow: var(--quota-shadow);
+}
+
+.quota-quota {
+    box-shadow: none;
+}
+
+///////////////
+// 引用样式1 //
+/////////////
+
+// .quota{
+//     margin: 1rem -4rem;
+//     padding: 1rem 2rem;
+// }
+
+// .quota-quota{
+//     margin: 1rem 2rem;
+// }
+
+
+///////////////
+// 引用样式2 //
+/////////////
+
+// .quota{
+//     border-left: var(--base-borderl);
+// }
+
+
+///////////////
+// 引用样式3 //
+/////////////
+
+// .quota{
+//     margin: 1rem -4rem;
+//     border-left: var(--base-borderl);
+//     border-right: var(--base-borderl);
+// }
+
+
+///////////////
+// 引用样式4 //
+/////////////
+
+// .quota{
+//     background: none;
+//     box-shadow: none;
+//     font-family: fangsong;
+//     margin: 1rem 2rem;
+// }
+
 
 *,
 :after,
@@ -180,21 +259,21 @@ body,
     font-weight: 400;
     font-size: 16px;
     font-size: 1rem;
-    line-height: 1.75rem;
+    line-height: var(--lineheight);
     color: var(--text-color);
     text-align: justify;
 }
 
 content {
     background: var(--bg-color);
-    min-width: 600px;
+    min-width: 400px;
 }
 
 #write {
     background: var(--write-bg);
     max-width: 914px;
-    min-width: calc(100vw-45rem);
-    min-height: calc(100vh-6rem);
+    min-width: 400px;
+    min-height: 98%;
     margin: 2rem auto;
     padding: 4rem;
 
@@ -443,6 +522,7 @@ content {
         font-family: var(--quota-font);
         font-size: 1.2rem;
         box-shadow: var(--quota-shadow);
+        .quota();
 
         blockquote {
             padding: 0;
@@ -450,6 +530,7 @@ content {
             border-left: var(--base-borderl);
             box-shadow: none;
             border-radius: 0;
+            .quota-quota();
         }
 
         pre.md-fences {
@@ -459,7 +540,7 @@ content {
         p {
             color: var(--quota-color);
             font-family: var(--quota-font);
-            line-height: 1.75rem;
+            line-height: var(--lineheight);
         }
 
         em,
@@ -586,7 +667,7 @@ content {
         }
 
         .md-toc-h1 {
-            margin-top: 2rem;
+            margin-top: 4rem;
             font-weight: 300;
             font-size: 1.2rem;
             counter-increment: counter_md-toc-h1;
@@ -831,7 +912,7 @@ blockquote .task-list-item input::before {
         &::before {
             display: block;
             position: relative;
-            left: 0;
+            left: 0!important;
             margin-top: 4rem;
             margin-bottom: 0;
             padding: 0;
@@ -841,6 +922,10 @@ blockquote .task-list-item input::before {
         .md-toc-content {
             top: 0;
             left: 0;
+
+            .md-toc-h1 {
+                margin-top: 2rem;
+            }
         }
     }
 }
@@ -895,7 +980,7 @@ blockquote .task-list-item input::before {
         font-size: 16px;
         font-size: 1rem;
         font-weight: 400;
-        line-height: 1.75rem;
+        line-height: var(--lineheight);
     }
 
     .typora-export * {
@@ -933,7 +1018,7 @@ blockquote .task-list-item input::before {
         }
 
         p {
-            line-height: 1.75rem;
+            line-height: var(--lineheight);
             margin-top: 0;
             margin-bottom: 0;
             text-indent: 2rem;
