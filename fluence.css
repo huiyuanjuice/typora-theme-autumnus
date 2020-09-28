@@ -174,11 +174,15 @@ content {
   background: var(--bg-color);
   min-width: 400px;
 }
+.typora-node #write {
+  min-height: calc(100% - 6em);
+}
 #write {
   background: var(--write-bg);
   max-width: 914px;
   min-width: 400px;
-  min-height: 98%;
+  min-height: calc(100vh - 6em);
+  -webkit-font-smoothing: antialiased;
   margin: 2rem auto;
   padding: 4rem;
 }
@@ -350,6 +354,10 @@ content {
 #write ul,
 #write ol {
   margin-left: 1.5rem;
+}
+#write ul li::marker,
+#write ol li::marker {
+  color: hsl(0, 100%, 75%);
 }
 #write ul {
   list-style: disc;
@@ -699,7 +707,7 @@ blockquote .task-list-item input::before {
   .md-toc::before {
     display: block;
     position: relative;
-    left: 0!important;
+    left: 0 !important;
     margin-top: 4rem;
     margin-bottom: 0;
     padding: 0;
@@ -1127,6 +1135,16 @@ table#typora-help-md-table tr {
 }
 .md-image > .md-meta {
   color: var(--meta-content-color);
+}
+#typora-sidebar #outline-content .outline-h1 > .outline-item,
+#typora-sidebar .outline-title-wrapper,
+#typora-sidebar .outline-item-wrapper.outline-h1 > .outline-item,
+#typora-sidebar .file-library-node,
+#typora-sidebar .file-library-node .file-node-background {
+  transition: background 0.4s;
+}
+#typora-sidebar #ty-sidebar-footer .sidebar-footer-item {
+  transition: background 0.3s;
 }
 .unibody-window,
 .ty-preferences .windows,
