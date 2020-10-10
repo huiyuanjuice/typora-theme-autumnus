@@ -1,7 +1,5 @@
 # Autumnus-L & Autumnus-D
 
-复刻了 `typora-theme-autumnus` 的亮色模式和暗夜模式，使用 `less` 编写，缩小了文件的大小。
-
 ## 安装
 
 把 `css` 文件复制到主题文件夹下，重启程序后选择对应的主题即可。
