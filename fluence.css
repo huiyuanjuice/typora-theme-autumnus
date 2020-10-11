@@ -44,7 +44,7 @@
   --base-font: -apple-system, "Raleway Medium", "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "Noto Sans CJK SC", "PingFang SC", "Hiragino Sans GB", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
   --title-font: var(--base-font);
   --em-font: "lora", Georgia, "Nimbus Roman No9 L", "Noto Serif CJK SC", "Songti SC", "Source Han Serif SC", "Source Han Serif CN", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun, SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU, serif;
-  --quota-font: "lora", Baskerville, Georgia, "Liberation Serif", "TW-Kai", "Kaiti SC", STKaiti, "AR PL UKai CN", "AR PL UKai HK", "AR PL UKai TW", "AR PL UKai TW MBE", "AR PL KaitiM GB", KaiTi, KaiTi_GB2312, DFKai-SB, "TW\-Kai", curve, serif;
+  --quota-font: "eb garamond", Baskerville, Georgia, "Liberation Serif", "TW-Kai", "Kaiti SC", STKaiti, "AR PL UKai CN", "AR PL UKai HK", "AR PL UKai TW", "AR PL UKai TW MBE", "AR PL KaitiM GB", KaiTi, KaiTi_GB2312, DFKai-SB, "TW\-Kai", curve, serif;
   --monospace: "Cascadia code", Monaco, "Deja Vu Sans Mono", Consolas, "Lucida Console", "Andale Mono", Courier;
   --mermaid-alt-font-family: var(--base-font) !important;
   --mermaid-font-family: var(--base-font) !important;
@@ -162,7 +162,7 @@ html,
 body,
 #write {
   font-family: var(--base-font);
-  font-weight: 400;
+  font-weight: 300;
   font-size: 16px;
   font-size: 1rem;
   line-height: var(--lineheight);
@@ -326,7 +326,7 @@ content {
 #write strong,
 #write em {
   font-family: var(--em-font);
-  font-weight: 800;
+  font-weight: 600;
   color: var(--title-color);
 }
 #write em {
@@ -335,10 +335,6 @@ content {
 }
 #write del {
   color: var(--footer-color);
-}
-#write ul,
-#write ol {
-  margin-left: 1.5rem;
 }
 #write ul li::marker,
 #write ol li::marker {
@@ -349,26 +345,18 @@ content {
 }
 #write ul ul {
   list-style: circle;
-  margin-left: 1rem;
 }
 #write ol {
   list-style: decimal-leading-zero;
 }
 #write ol ol {
   list-style: lower-roman;
-  margin-left: 1rem;
 }
 #write ol ol,
 #write ul ul,
 #write ol ul,
 #write ul ol {
   margin-top: 0.5rem;
-}
-#write ul li,
-#write ol li,
-#write li ul,
-#write li ol {
-  margin-left: 1rem;
 }
 #write blockquote {
   background: var(--quota-bg);
@@ -576,7 +564,6 @@ blockquote .task-list-item input::before {
   }
   #write blockquote {
     background: var(--quota-bg);
-    margin: 1.5rem auto;
     padding: 1rem;
     border-radius: 0;
     box-shadow: none;
@@ -660,6 +647,9 @@ blockquote .task-list-item input::before {
     font-size: 1.75rem;
     line-height: 2.5rem;
   }
+  #write h1::after {
+    display: none;
+  }
   #write h2 {
     font-size: 1.5rem;
   }
@@ -679,7 +669,7 @@ blockquote .task-list-item input::before {
   }
   #write blockquote {
     position: relative;
-    margin: 1.5rem 2rem;
+    margin: 1rem 2rem;
     background: none;
     color: #555;
     font-weight: 300;
@@ -693,6 +683,9 @@ blockquote .task-list-item input::before {
   #write blockquote blockquote {
     margin-right: 0;
     padding-right: 0;
+  }
+  #write blockquote + blockquote {
+    margin-bottom: 1rem;
   }
   #write pre.md-fences {
     background: hsl(0, 0%, 95%);
