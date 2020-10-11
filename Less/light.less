@@ -282,7 +282,7 @@ content {
     h1,
     h2 {
         font-family: var(--title-font);
-        font-weight: 600;
+        font-weight: 300;
         line-height: 3rem;
         text-transform: uppercase;
     }
@@ -290,6 +290,15 @@ content {
     h1 {
         font-size: 3rem;
         margin: 3rem auto 4rem;
+
+        &::after {
+            content: "";
+            display: block;
+            border-bottom: 1px solid var(--link-color);
+            position: relative;
+            top: 1.5rem;
+            width: 50%;
+        }
     }
 
     h2 {
@@ -302,7 +311,7 @@ content {
     h5,
     h6 {
         font-family: var(--base-font);
-        font-weight: 600;
+        font-weight: 400;
         margin: 2rem auto 1rem;
         position: relative;
 
@@ -310,9 +319,10 @@ content {
             position: absolute;
             left: -2rem;
             font-size: .9rem;
+            text-align: center;
+            width: 1.5rem;
             vertical-align: middle;
             margin-right: .5rem;
-            padding: var(--base-padding);
             border-radius: 5px;
             background: @theme-color;
             color: var(--write-bg);
@@ -449,11 +459,6 @@ content {
         font-style: normal;
     }
 
-    mark {
-        background: var(--mark-bg);
-        color: var(--mark-color);
-    }
-
     del {
         color: var(--footer-color);
     }
@@ -540,11 +545,11 @@ content {
         box-shadow: var(--img-shadow);
         padding: 0;
 
-        &[alt="no-shadow"] {
+        &[alt|="no-shadow"] {
             box-shadow: none !important;
         }
 
-        &[alt="normal"] {
+        &[alt|="normal"] {
             margin: 0 !important;
             box-shadow: none !important;
         }

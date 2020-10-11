@@ -178,13 +178,21 @@ content {
 #write h1,
 #write h2 {
   font-family: var(--title-font);
-  font-weight: 600;
+  font-weight: 300;
   line-height: 3rem;
   text-transform: uppercase;
 }
 #write h1 {
   font-size: 3rem;
   margin: 3rem auto 4rem;
+}
+#write h1::after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid var(--link-color);
+  position: relative;
+  top: 1.5rem;
+  width: 50%;
 }
 #write h2 {
   font-size: 2rem;
@@ -195,7 +203,7 @@ content {
 #write h5,
 #write h6 {
   font-family: var(--base-font);
-  font-weight: 600;
+  font-weight: 400;
   margin: 2rem auto 1rem;
   position: relative;
 }
@@ -206,9 +214,10 @@ content {
   position: absolute;
   left: -2rem;
   font-size: 0.9rem;
+  text-align: center;
+  width: 1.5rem;
   vertical-align: middle;
   margin-right: 0.5rem;
-  padding: var(--base-padding);
   border-radius: 5px;
   background: hsl(0, 100%, 75%);
   color: var(--write-bg);
@@ -317,10 +326,6 @@ content {
   border-bottom: var(--opt-borderb);
   font-style: normal;
 }
-#write mark {
-  background: var(--mark-bg);
-  color: var(--mark-color);
-}
 #write del {
   color: var(--footer-color);
 }
@@ -389,10 +394,10 @@ content {
   box-shadow: var(--img-shadow);
   padding: 0;
 }
-#write img[alt="no-shadow"] {
+#write img[alt|="no-shadow"] {
   box-shadow: none !important;
 }
-#write img[alt="normal"] {
+#write img[alt|="normal"] {
   margin: 0 !important;
   box-shadow: none !important;
 }
