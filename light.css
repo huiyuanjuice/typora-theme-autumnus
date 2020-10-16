@@ -166,11 +166,13 @@ content {
   background: var(--bg-color);
   min-width: 400px;
 }
+.typora-node #write {
+  min-height: calc(100vh - 6em);
+}
 #write {
   background: var(--write-bg);
   max-width: 914px;
   min-width: 400px;
-  min-height: calc(100vh - 6em);
   -webkit-font-smoothing: antialiased;
   margin: 2rem auto;
   padding: 2rem;
@@ -736,7 +738,7 @@ blockquote .task-list-item input::before {
 }
 :root {
   --blur-text-color: hsl(0, 100%, 90%);
-  --active-file-bg-color: hsl(0, 0%, 99%);
+  --active-file-bg-color: hsl(0, 0%, 90%);
   /* 文件列表 当前文件激活 背景色*/
   --active-file-text-color: hsl(0, 100%, 75%);
   --active-file-border-color: hsl(0, 100%, 75%);
@@ -766,8 +768,8 @@ blockquote .task-list-item input::before {
   color: var(--item-hover-text-color);
 }
 .file-node-content:hover {
-  background: var(--bg-color);
-  color: var(--control-text-hover-color);
+  background: var(--active-file-bg-color);
+  color: var(--active-file-text-color);
 }
 .ty-search-item-line {
   font-family: var(--base-font);
@@ -892,7 +894,7 @@ blockquote .task-list-item input::before {
   color: var(--primary-color);
 }
 .megamenu-menu {
-  box-shadow: 2px 2px 5px 0 #33333380, 2px 0px 10px 0 #33333380;
+  box-shadow: 2px 2px 5px 0 #33333380;
 }
 .megamenu-menu-list li {
   line-height: 48px;
@@ -905,6 +907,7 @@ blockquote .task-list-item input::before {
 .megamenu-opened .megamenu-menu {
   left: -1px !important;
 }
+.megamenu-menu,
 #megamenu-menu-list {
   background: #2f353a;
 }

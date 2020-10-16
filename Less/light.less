@@ -6,7 +6,7 @@
 // 主要色，请尽量选择亮度适中的颜色，即hsl值最后一个值尽量较大。
 @theme-color: if((@light<@dark), hsl(0, 100%, 75%), hsl(195, 100%, 50%));
 // 主要背景色
-@base-bg: if((@light<@dark), hsl(0, 0%, 100%), hsl(0, 0%, 25%));
+@base-bg: if((@light<@dark), hsl(0, 0%, 100%), hsl(0, 0%, 15%));
 // 主要文字颜色
 @base-text: if((@light<@dark), hsl(0, 0%, 5%), hsl(0, 0%, 75%));
 
@@ -270,11 +270,14 @@ content {
     min-width: 400px;
 }
 
+.typora-node #write {
+    min-height: calc(100vh - 6em);
+}
+
 #write {
     background: var(--write-bg);
     max-width: 914px;
     min-width: 400px;
-    min-height: calc(100vh - 6em);
     -webkit-font-smoothing: antialiased;
     margin: 2rem auto;
     padding: 2rem;
@@ -920,7 +923,7 @@ blockquote .task-list-item input::before {
             }
         }
 
-        blockquote+blockquote{
+        blockquote+blockquote {
             margin-bottom: 1rem;
         }
 
@@ -1043,7 +1046,7 @@ blockquote .task-list-item input::before {
 
 :root {
     --blur-text-color: if((@light<@dark), lighten(@theme-color, 15%), darken(@theme-color, 15%));
-    --active-file-bg-color: darken(@base-bg, 1%);
+    --active-file-bg-color: darken(@base-bg, 10%);
     /* 文件列表 当前文件激活 背景色*/
     --active-file-text-color: @theme-color;
     --active-file-border-color: @theme-color;
@@ -1082,8 +1085,8 @@ blockquote .task-list-item input::before {
 }
 
 .file-node-content:hover {
-    background: var(--bg-color);
-    color: var(--control-text-hover-color);
+    background: var(--active-file-bg-color);
+    color: var(--active-file-text-color);
 }
 
 //serch-result
@@ -1253,7 +1256,7 @@ blockquote .task-list-item input::before {
 //megamenu
 
 .megamenu-menu {
-    box-shadow: 2px 2px 5px 0 #33333380, 2px 0px 10px 0 #33333380;
+    box-shadow: if((@light<@dark), 2px 2px 5px 0 #33333380, 2px 2px 5px 0 #16161680);
 }
 
 .megamenu-menu-list li {
@@ -1270,8 +1273,9 @@ blockquote .task-list-item input::before {
     left: -1px !important;
 }
 
+.megamenu-menu,
 #megamenu-menu-list {
-    background: #2f353a;
+    background: if((@light<@dark), #2f353a, #1d1d1d);
 }
 
 .megamenu-menu-list .saved #m-saved {
