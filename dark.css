@@ -19,8 +19,8 @@
   --md-char-color: hsl(195, 100%, 60%);
   --meta-content-color: hsl(195, 100%, 60%);
   --link-hover: hsl(195, 100%, 60%);
-  --thead-hover: hsl(0, 0%, 14%);
-  --tbody-hover: hsl(0, 0%, 14%);
+  --thead-hover: hsl(0, 0%, 5%);
+  --tbody-hover: hsl(0, 0%, 5%);
   --window-border: 1px solid hsl(0, 0%, 95%);
   --base-border: 1px solid hsl(195, 100%, 60%);
   --base-borderl: 4px solid hsl(195, 100%, 60%);
@@ -41,16 +41,6 @@
   --monospace: "Cascadia code", Monaco, "Deja Vu Sans Mono", Consolas, "Lucida Console", "Andale Mono", Courier;
   --mermaid-alt-font-family: var(--base-font) !important;
   --mermaid-font-family: var(--base-font) !important;
-}
-.quota {
-  background: var(--quota-bg);
-  color: var(--quota-color);
-  font-family: var(--quota-font);
-  font-size: 1.2rem;
-  box-shadow: var(--quota-shadow);
-}
-.quota-quota {
-  box-shadow: none;
 }
 *,
 :after,
@@ -177,8 +167,8 @@ content {
   margin: 2rem auto;
   padding: 2rem;
 }
-#write h1,
-#write h2 {
+h1,
+h2 {
   font-family: var(--title-font);
   font-weight: 300;
   line-height: 3rem;
@@ -196,23 +186,23 @@ content {
   top: 1.5rem;
   width: 50%;
 }
-#write h2 {
+h2 {
   font-size: 2rem;
   margin: 2rem auto 1rem;
 }
-#write h3,
-#write h4,
-#write h5,
-#write h6 {
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--base-font);
   font-weight: 400;
   margin: 2rem auto 1rem;
   position: relative;
 }
-#write h3:before,
-#write h4:before,
-#write h5:before,
-#write h6:before {
+h3:before,
+h4:before,
+h5:before,
+h6:before {
   position: absolute;
   left: -2rem;
   font-size: 0.9rem;
@@ -224,74 +214,74 @@ content {
   background: hsl(195, 100%, 50%);
   color: var(--write-bg);
 }
-#write h3 {
+h3 {
   font-size: 1.75rem;
 }
-#write h3:hover::before {
+h3:hover::before {
   content: "H3";
 }
-#write h4 {
+h4 {
   font-size: 1.5rem;
 }
-#write h4:hover::before {
+h4:hover::before {
   content: "H4";
 }
-#write h5,
-#write h6 {
+h5,
+h6 {
   font-size: 1.25rem;
 }
-#write h5:hover::before {
+h5:hover::before {
   content: "H5";
 }
-#write h6:hover::before {
+h6:hover::before {
   content: "H6";
 }
-#write blockquote,
-#write pre.md-fences,
-#write pre.md-meta-block,
-#write figure > table,
-#write img {
+blockquote,
+pre.md-fences,
+pre.md-meta-block,
+figure > table,
+img {
   margin: var(--base-margin);
   border-radius: 5px;
   padding: var(--opt-padding);
 }
-#write ul,
-#write ol {
+ul,
+ol {
   margin: var(--base-margin);
 }
-#write p + p {
+p + p {
   margin: 0.5rem auto;
 }
-#write code,
-#write mark,
-#write kbd,
-#write samp,
-#write tt,
-#write var,
-#write ins {
+code,
+mark,
+kbd,
+samp,
+tt,
+var,
+ins {
   margin: 0 4px;
   padding: var(--base-padding);
   border-radius: 5px;
   font-family: var(--monospace);
 }
-#write pre.md-meta-block {
+pre.md-meta-block {
   min-height: 30px;
   position: sticky;
   margin-top: -1.5rem;
   margin-bottom: 2rem;
 }
-#write pre {
+pre {
   white-space: pre;
 }
-#write pre.md-fences {
+pre.md-fences {
   display: block;
   -webkit-overflow-scrolling: touch;
   box-shadow: var(--code-shadow);
   white-space: pre;
 }
-#write pre.md-meta-block,
-#write pre.md-fences,
-#write code {
+pre.md-meta-block,
+pre.md-fences,
+code {
   line-height: 1.5rem;
   font-family: var(--monospace);
   font-size: 0.9rem;
@@ -299,7 +289,7 @@ content {
   background-color: var(--codeb-bg);
   color: var(--codeb-color);
 }
-#write code {
+code {
   background-color: var(--code-bg);
   color: var(--code-color);
   font-weight: 400;
@@ -318,120 +308,121 @@ content {
   color: var(--link-hover);
   text-decoration: none;
 }
-#write strong,
-#write em {
+strong,
+em {
   font-family: var(--em-font);
   font-weight: 600;
   color: var(--title-color);
 }
-#write em {
+em {
   border-bottom: var(--opt-borderb);
   font-style: normal;
 }
-#write del {
+del {
   color: var(--footer-color);
 }
-#write ul li::marker,
-#write ol li::marker {
+ul li::marker,
+ol li::marker {
   color: hsl(195, 100%, 50%);
 }
-#write ul {
+ul {
   list-style: disc;
 }
-#write ul ul {
+ul ul {
   list-style: circle;
 }
-#write ol {
+ol {
   list-style: decimal-leading-zero;
 }
-#write ol ol {
+ol ol {
   list-style: lower-roman;
 }
-#write ol ol,
-#write ul ul,
-#write ol ul,
-#write ul ol {
+ol ol,
+ul ul,
+ol ul,
+ul ol {
   margin-top: 0.5rem;
 }
-#write blockquote {
+blockquote {
   background: var(--quota-bg);
   color: var(--quota-color);
   font-family: var(--quota-font);
   font-size: 1.2rem;
   box-shadow: var(--quota-shadow);
 }
-#write blockquote blockquote {
+blockquote blockquote {
   padding: 0;
   padding-left: 1rem;
   border-left: var(--base-borderl);
   border-radius: 0;
   box-shadow: none;
 }
-#write blockquote pre.md-fences {
+blockquote pre.md-fences {
   box-shadow: none;
 }
-#write blockquote p {
+blockquote p {
   color: var(--quota-color);
   font-family: var(--quota-font);
   line-height: var(--lineheight);
 }
-#write blockquote em,
-#write blockquote strong,
-#write blockquote mark {
+blockquote em,
+blockquote strong,
+blockquote mark {
   font-size: 1rem;
 }
-#write img {
+img {
   box-shadow: var(--img-shadow);
   padding: 0;
+  margin: 1rem!important;
 }
-#write img[alt|="no-shadow"] {
+img[alt|="no-shadow"] {
   box-shadow: none !important;
 }
-#write img[alt|="normal"] {
+img[alt|="normal"] {
   margin: 0 !important;
   box-shadow: none !important;
 }
-#write hr {
+hr {
   border: none;
   border-bottom: var(--base-border);
   margin: 3rem auto;
   height: 1px;
   width: 50%;
 }
-#write hr .pb {
+hr .pb {
   page-break-after: always;
   border-bottom: none;
 }
-#write figure > table {
+figure > table {
   width: 98%;
 }
-#write table th,
-#write table thead th,
-#write table td {
+table th,
+table td {
   padding: 0.5rem 1rem;
 }
-#write table th,
-#write table thead th {
-  background: var(--thead-bg);
+table thead tr {
+  background: var(--thead-bg) !important;
 }
-#write table th:hover,
-#write table thead th:hover {
-  background: var(--thead-hover);
+table thead tr:hover {
+  background: var(--thead-hover) !important;
   color: var(--link-hover);
 }
-#write table caption {
+table caption {
   border-bottom: none;
 }
-#write table td {
-  background: var(--tbody-bg);
+table tr {
+  background: var(--write-bg);
   color: var(--text-color);
   border: 1px solid var(--thead-bg);
 }
-#write table td:hover {
+table tr:nth-child(2n) {
+  background: var(--tbody-bg);
+}
+table tr:hover {
   background: var(--tbody-hover);
   color: var(--link-hover);
 }
-#write sup.md-footnote {
+sup.md-footnote {
   padding: var(--base-padding);
   color: var(--footer-color);
   cursor: pointer;
@@ -832,12 +823,13 @@ blockquote .task-list-item input::before {
 .md-image > .md-meta {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-}
-.md-image > img {
-  margin-top: 2px;
+  color: var(--meta-content-color);
 }
 .md-image > .md-meta:first-of-type:before {
   padding-left: 4px;
+}
+.md-image > img {
+  margin-top: 2px;
 }
 .dropdown-menu,
 .context-menu.dropdown-menu > li > a:focus {
@@ -847,11 +839,6 @@ blockquote .task-list-item input::before {
 .context-menu.dropdown-menu > li > a:hover,
 .menu-style-btn.active {
   color: var(--primary-color);
-}
-#typora-source {
-  background: var(--bg-color);
-  color: var(--code-color);
-  line-height: 1.5rem;
 }
 /* 源代码模式 */
 #typora-source {
@@ -885,14 +872,6 @@ blockquote .task-list-item input::before {
   background-blend-mode: overlay;
   border-radius: 5px;
 }
-.context-menu.dropdown-menu > li > a:focus {
-  background-color: var(--active-bg);
-}
-.context-menu.dropdown-menu > .active > a,
-.context-menu.dropdown-menu > li > a:hover,
-.menu-style-btn.active {
-  color: var(--primary-color);
-}
 .megamenu-menu {
   box-shadow: 2px 2px 5px 0 #16161680;
 }
@@ -903,13 +882,17 @@ blockquote .task-list-item input::before {
   line-height: 48px;
   height: 48px;
 }
-/* bugfix */
-.megamenu-opened .megamenu-menu {
-  left: -1px !important;
-}
 .megamenu-menu,
 #megamenu-menu-list {
   background: #1d1d1d;
+}
+.megamenu-menu-list li a.active,
+.megamenu-menu-list:not(.saved) li a:hover {
+  background: #00000033;
+}
+/* bugfix */
+.megamenu-opened .megamenu-menu {
+  left: -1px !important;
 }
 .megamenu-menu-list .saved #m-saved {
   display: block;
@@ -917,42 +900,40 @@ blockquote .task-list-item input::before {
 .megamenu-content {
   background: var(--bg-color) !important;
 }
-.megamenu-menu-panel h1,
-.megamenu-menu-panel h2 {
+.megamenu-content h1,
+.megamenu-content h2 {
+  font-size: 2.5rem;
   margin: 2rem auto;
 }
-.megamenu-menu-panel table tr {
-  background: var(--bg-color);
+.megamenu-content img {
+  box-shadow: none;
 }
-.megamenu-menu-panel tr:hover {
-  background: hsl(0, 0%, 10%);
-  color: var(--primary-color) !important;
+.megamenu-content .long-btn {
+  text-align: left;
 }
-#recent-file-panel tbody tr:nth-child(2n-1) {
-  background-color: hsl(0, 0%, 5%);
+.megamenu-content #megamenu-section-about tr {
+  background: var(--write-bg);
 }
-.theme-preview-div:hover {
-  border-color: #80aaff80;
+.megamenu-content #megamenu-section-theme #theme-preview-grid {
+  max-width: 90%;
 }
-.theme-preview-div {
+.megamenu-content #megamenu-section-theme #theme-preview-grid .theme-preview-div {
+  width: 15rem;
   border: 4px solid #99999950;
 }
-.theme-preview-div.active,
-.theme-preview-div.active:hover {
+.megamenu-content #megamenu-section-theme #theme-preview-grid .theme-preview-div:hover {
+  border-color: #80aaff80;
+}
+.megamenu-content #megamenu-section-theme #theme-preview-grid .theme-preview-div .theme-preview-content {
+  width: auto;
+}
+.megamenu-content #megamenu-section-theme #theme-preview-grid .theme-preview-div.active,
+.megamenu-content #megamenu-section-theme #theme-preview-grid .theme-preview-div.active:hover {
   border-color: var(--primary-color);
 }
 .nav-group-item.active {
   background: var(--side-bar-bg-color) !important;
   color: hsl(195, 100%, 50%);
-}
-table#typora-help-md-table tr {
-  background: transparent;
-}
-.about-content-meta {
-  font-family: var(--base-font);
-}
-#megamenu-section-about a {
-  color: var(--link-color);
 }
 #top-titlebar,
 #top-titlebar * {
@@ -975,9 +956,6 @@ table#typora-help-md-table tr {
   cursor: pointer;
 }
 /* animation */
-.long-btn {
-  text-align: left;
-}
 #write td,
 #megamenu-content td,
 .file-list-item,
@@ -1018,25 +996,20 @@ table#typora-help-md-table tr {
   opacity: 0.3;
   transition: 0s;
 }
-.md-image > .md-meta {
-  color: var(--meta-content-color);
-}
 #typora-sidebar #outline-content .outline-h1 > .outline-item,
 #typora-sidebar .outline-title-wrapper,
 #typora-sidebar .outline-item-wrapper.outline-h1 > .outline-item,
 #typora-sidebar .file-library-node,
-#typora-sidebar .file-library-node .file-node-background {
-  transition: background 0.4s;
-}
+#typora-sidebar .file-library-node .file-node-background,
 #typora-sidebar #ty-sidebar-footer .sidebar-footer-item {
-  transition: background 0.3s;
+  transition: background 0.4s;
 }
 .unibody-window,
 .ty-preferences .windows,
-uni-preference-panel {
+uni-preference-panel,
+.megamenu-content * :not(.fa) {
   font-family: var(--base-font);
 }
-/* 搜索与替换 */
 #md-searchpanel.searchpanel-replace-mode {
   max-height: 80px;
 }
@@ -1045,6 +1018,9 @@ uni-preference-panel {
 }
 .cm-s-inner .CodeMirror-cursor {
   border-left: solid var(--link-color) !important;
+}
+#recent-file-panel tbody tr:nth-child(2n-1) {
+  background-color: transparent;
 }
 .cm-s-inner {
   background-color: #263238;
